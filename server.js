@@ -1,22 +1,28 @@
-import express from 'express';
-import cors from 'cors';
+import app from './src/app.js';
 
-const app = express(); // app - web-server (вызов express как функцию, создание сервера)
-const corsMiddleware = cors();
+app.listen(3001, () =>
+  console.log('Database connection successful port: 3001')
+);
 
-const database = { a: 39, b: 59 }; // условная база данных
+// import express from 'express';
+// import cors from 'cors';
 
-app.use(corsMiddleware);
+// const app = express(); // app - web-server (вызов express как функцию, создание сервера)
+// const corsMiddleware = cors();
 
-app.get('/api/photos', (req, res) => {
-  res.json(database);
-});
+// const database = { a: 39, b: 59 }; // условная база данных
 
-// middleware - если при запросе backenda маршрут отсутствует - выдать 404 ошибку
-app.use((req, res, next) => {
-  res.status(404).json({
-    message: 'Not found Hi',
-  });
-});
+// app.use(corsMiddleware);
 
-app.listen(3001, () => console.log('Database connection successful 3001'));
+// app.get('/api/photos', (req, res) => {
+//   res.json(database);
+// });
+
+// // middleware - если при запросе backenda маршрут отсутствует - выдать 404 ошибку
+// app.use((req, res, next) => {
+//   res.status(404).json({
+//     message: 'Not found Hi',
+//   });
+// });
+
+// app.listen(3001, () => console.log('Database connection successful 3001'));
