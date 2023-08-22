@@ -9,7 +9,7 @@ const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short';
 
 app.use(logger(formatsLogger));
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // прии получении данных от frontend изменяет из бинарного формата на нормальный (req.body)
 
 app.use('/api/photos', photosRouter);
 
