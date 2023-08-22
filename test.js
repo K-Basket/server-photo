@@ -1,8 +1,12 @@
 import express from 'express';
-import photosRouter from './routes/api/photos-router.js';
+import cors from 'cors';
 
 const app = express();
 
-app.use('/api/photos', photosRouter);
+app.use(cors());
+
+app.get('/photos', (req, res) => {
+  res.json(database);
+});
 
 app.listen(3001, () => console.log('Database connection successful 3001'));
