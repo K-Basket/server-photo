@@ -4,26 +4,19 @@ import { photosAddSchema } from '../../schemas/photosSchemas.js';
 import { validateBody } from '../../decorators/validateBody.js';
 import { isEmptyBody } from '../../middlewars/isEmptyBody.js';
 
-const photosRouter = express.Router();
+export const router = express.Router();
 
-photosRouter.get('/', controller.getAll);
+router.get('/', controller.getAll);
 
-photosRouter.get('/:photoId', controller.getById);
+router.get('/:photoId', controller.getById);
 
-photosRouter.post(
-  '/',
-  isEmptyBody,
-  validateBody(photosAddSchema),
-  controller.add
-);
+router.post('/', isEmptyBody, validateBody(photosAddSchema), controller.add);
 
-photosRouter.put(
+router.put(
   '/:photoId',
   isEmptyBody,
   validateBody(photosAddSchema),
   controller.updateById
 );
 
-photosRouter.delete('/:photoId', controller.deleteById);
-
-export default photosRouter;
+router.delete('/:photoId', controller.deleteById);

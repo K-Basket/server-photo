@@ -2,7 +2,7 @@ import express from 'express';
 import logger from 'morgan'; // вывод в консоль запросов
 import cors from 'cors';
 
-import photosRouter from './routes/api/photos-router.js';
+import { router as photosRouter } from './routes/api/photos-router.js';
 
 const app = express();
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short';
