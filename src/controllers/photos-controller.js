@@ -1,9 +1,9 @@
 import { HttpError } from '../helpers/HttpError.js';
-import { database } from './dataBase.js';
 import ctrlWrapper from '../decorators/ctrlWrapper.js';
+import Photo from '../models/photo.js';
 
 const getAll = async (req, res) => {
-  const result = await database;
+  const result = await Photo.find();
   res.json(result);
 };
 
@@ -17,7 +17,7 @@ const getById = async (req, res) => {
 };
 
 const add = async (req, res) => {
-  const result = 'add data';
+  const result = await Photo.create(req.body);
   res.status(201).json(result);
 };
 

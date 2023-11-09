@@ -5,4 +5,7 @@ export const photosAddSchema = Joi.object({
   location: Joi.string().required(),
   description: Joi.string().required(),
   image: Joi.string().required(),
+  favorite: Joi.boolean(),
+  genre: Joi.string(),
+  releseDate: Joi.string(),
 });
